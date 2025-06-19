@@ -1,4 +1,3 @@
-# Configure the Azure provider
 terraform {
   required_providers {
     azurerm = {
@@ -48,4 +47,12 @@ resource "azurerm_container_app" "InfraTest" {
       memory = "0.5Gi"
     }
   }
+}
+
+resource "azurerm_container_registry" "InfraTest" {
+  name                = var.container_registry_name
+  resource_group_name = azurerm_resource_group.InfraTest.name
+  location            = azurerm_resource_group.InfraTest.location
+  sku                 = "Basic"
+  admin_enabled       = false
 }

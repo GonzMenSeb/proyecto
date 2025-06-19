@@ -18,3 +18,6 @@ variable "container_app_name" {
   default = "infra-test-ca"
 }
 
+variable "container_registry_name" {
+  default = "infratestcr1946546"
+}
